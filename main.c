@@ -18,7 +18,7 @@ int main() {
 
         CLEAR();
         printf("=====================================\n");
-        printf("   Grayscale Float → Int Converter\n");
+        printf("   Grayscale Float -> Int Converter\n");
         printf("=====================================\n\n");
 
         printf("Choose mode:\n");
