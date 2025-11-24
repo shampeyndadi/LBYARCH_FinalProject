@@ -1,4 +1,4 @@
-Grayscale Float → Integer Converter (C + x86-64 Assembly)
+##Grayscale Float → Integer Converter (C + x86-64 Assembly)##
 
 📌 Project Overview
 
