@@ -3,6 +3,7 @@
 ## Project Overview
 
 This project implements a grayscale conversion pipeline where **C** handles the driver logic and I/O, while **x86-64 assembly** performs the core pixel conversion.  
+
 It converts grayscale pixel values from **floating-point (0.0–1.0)** into **8-bit integer grayscale (0–255)** using proportional mapping and accurate scalar SIMD instructions.
 
 ## Workflow Summary
