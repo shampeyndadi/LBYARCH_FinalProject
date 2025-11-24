@@ -58,7 +58,7 @@ https://github.com/user-attachments/assets/9dd47157-3f61-46f8-9888-7da9cb3f128c
 ---
 
 ## Video
-
+https://drive.google.com/file/d/1gYZexAtTHgmNLhyZrSYqM7e3xy18bgcW/view?usp=sharing
 
 ## Local Testing & Build Guide
 
