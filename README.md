@@ -27,7 +27,7 @@ Further testing shows that a pattern emerges during most of the testing from 3 d
         
 ii.) Program Output with Correctness Check
 
-![alt text]<"https://github.com/user-attachments/assets/9dd47157-3f61-46f8-9888-7da9cb3f128c" />
+https://github.com/user-attachments/assets/9dd47157-3f61-46f8-9888-7da9cb3f128c
 
 iii.) Video.
 
