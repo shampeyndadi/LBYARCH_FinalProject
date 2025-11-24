@@ -35,12 +35,7 @@ int main(){
     imgCvtGrayFloatToInt(in, out, total);
 
     printf("\nOutput Image:\n");
-    for (int i = 0; i < h; i++){
-        for (int j = 0; j < w; j++){
-            printf("%d ", out[i * w + j]);
-        }
-        printf("\n");
-    }
+    printImageInt(out, h, w);
 
     free(in);
     free(out);
