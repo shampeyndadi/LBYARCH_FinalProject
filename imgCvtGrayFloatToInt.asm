@@ -5,6 +5,8 @@ section .data
     half:       dd 0.5
 
 section .text
+    bits 64
+    default rel
 global imgCvtGrayFloatToInt
 imgCvtGrayFloatToInt:
 
