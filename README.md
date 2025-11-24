@@ -1,70 +1,72 @@
-##Grayscale Float → Integer Converter (C + x86-64 Assembly)##
+# Grayscale Float → Integer Converter (C + x86-64 Assembly)
 
-📌 Project Overview
+## Project Overview
 
-This project implements a grayscale conversion program where C handles the driver logic and I/O, and x86-64 assembly performs the core pixel conversion. The program converts grayscale pixel values from single-precision floating-point (0.0–1.0) into 8-bit unsigned integer grayscale values (0–255) using proportional mapping and scalar SIMD floating-point instructions..
+This project implements a grayscale conversion pipeline where **C** handles the driver logic and I/O, while **x86-64 assembly** performs the core pixel conversion.  
+It converts grayscale pixel values from **floating-point (0.0–1.0)** into **8-bit integer grayscale (0–255)** using proportional mapping and accurate scalar SIMD instructions.
 
-The C program is responsible for:
+### Responsibilities  
+**C Program**
+- Manual or random pixel input  
+- Output printing (float and integer images)  
+- Memory allocation  
+- High-resolution timing via `QueryPerformanceCounter()`  
+- Menu-driven interface  
 
-- Manual or random pixel input
-- Output printing (float and integer images)
-- Memory allocation
-- High-resolution timing using QueryPerformanceCounter()
-- A full menu-driven interface.
+**Assembly Routine**
+- Performs the actual per-pixel conversion  
+- Formula used:  
 
-The assembly routine performs the actual conversion, applying the formula:
+#### intPixel = floatPixel * 255
 
-        - i = f * 255
+- Utilizes scalar SIMD instructions:  
+`movss`, `mulss`, `roundss`, `cvttss2si`  
 
-It uses scalar SIMD operations such as movss, mulss, roundss, and cvttss2si for accurate rounding and fast per-pixel processing.
+---
 
+## i.) Execution Time (20 Runs) – Summary & Analysis
 
-i.) Execution Time (Ran 20 times) and analysis
-        
-For images with a height and width from 1 - 9, the average execution time was from 0.0000000200 seconds up to 0.0000002000 seconds.     
-For images with a height and width from 10 - 90, the average execution time was from 0.0000002000 seconds up to 0.0000880000 seconds. 
-Further testing shows that a pattern emerges during most of the testing from 3 digits up until 5 digits where the time is just multiplied by 80-100 for each              digit added in the length and the width. Testing also showed that the maximum capacity of our program is to be estimated at around 20000 height and 20000 width.
-        
-ii.) Program Output with Correctness Check
+- For images with dimensions **1×1 to 9×9**, average runtime ranged  
+**0.0000000200 s → 0.0000002000 s**
+- For image sizes **10×10 to 90×90**, average runtime ranged  
+**0.0000002000 s → 0.0000880000 s**
+- A scaling pattern appears: from 3-digit to 5-digit image sizes,  
+execution time increases roughly **×80–100** per digit increase.
+- Stress testing suggests the maximum stable image size is approximately:  
+**20,000 × 20,000 pixels**
 
+---
+
+## Program Output (Correctness Check)
+
+Demo output images:  
 https://github.com/user-attachments/assets/9dd47157-3f61-46f8-9888-7da9cb3f128c
 
-iii.) Video.
+---
+
+## Video
 
 
-To compile the program, follow the steps below.
+---
 
-### 1. Install Required Tools
-Ensure the following tools are installed and added to your system PATH:
+# Local Testing & Build Guide
 
-- NASM (Netwide Assembler)
-- MinGW-w64 GCC (64-bit recommended)
+Follow these steps to compile and run the project locally.
 
-You can verify installation with:
+- Make sure NASM and GCC are installed.
+- Open Command Prompt inside the project folder.
+- Run:
 
-- nasm -v
-- gcc --version
+   build.bat
 
-
-### 2. Clone or Download the Repository
-Download or clone the project folder to your local machine:
-
-- git clone <your-repo-url>
-- cd <project-folder>
-
-
-### 3. Assemble the x86-64 Assembly File
-Use NASM to assemble the conversion routine:
-
-- nasm -f win64 imgCvtGrayFloatToInt.asm -o imgCvtGrayFloatToInt.obj
-
-### 4. Compile the C Source Files
-Compile the program logic and helper functions:
-
-- gcc -c main.c -o main.obj
-- gcc -c image_helpers.c -o image_helpers.obj
-- gcc main.obj image_helpers.obj imgCvtGrayFloatToInt.obj -o a.exe
+The script will:
+- Clean old build files  
+- Assemble the .asm file  
+- Compile the C files  
+- Link everything  
+- Automatically run the program  
 
 ## Roles
 - Stephen Co S17B - Asm Conversion Logic
-- Jedidia Julian S19B - C interface 
+- Jedidiah Julian S19B - C interface
+
