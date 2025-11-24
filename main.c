@@ -59,7 +59,7 @@ int main() {
         printf("=====================================\n");
         if (mode == 1) {
 
-            printf("Manual Input Mode\n");
+            printf("Manual Input Mode - Row-major order\n");
             printf("=====================================\n");
 
             for (long i = 0; i < total; i++) {
