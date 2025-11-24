@@ -38,7 +38,7 @@ It converts grayscale pixel values from **floating-point (0.0–1.0)** into **8-
 `movss`, `mulss`, `roundss`, `cvttss2si`  
 
 
-## Execution Time (20 Runs) – Summary & Analysis
+## Execution Time (30 Runs) – Summary & Analysis
 
 - For images with dimensions **1×1 to 9×9**, average runtime ranged  
 **0.0000000200 s → 0.0000002000 s**
